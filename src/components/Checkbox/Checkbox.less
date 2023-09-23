@@ -1,0 +1,38 @@
+@import "../../assets/styles/app";
+
+.ev-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+
+  &--box {
+    width: 24px;
+    height: 24px;
+    border-radius: 5.556px;
+    border: 1px solid @ev-color--white;
+    transition: .3s;
+
+    svg {
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &_active {
+      transition: .3s;
+      border-color: @ev-color--alpha;
+      background: @ev-color--primary;
+
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+
+  span {
+    color: @ev-color--white;
+    font-family: Gilroy, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

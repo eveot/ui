@@ -1,0 +1,49 @@
+@import "../../assets/styles/app";
+
+.ev-button {
+  background: none;
+  outline: none;
+  border: none;
+  color: @ev-color--white;
+  transition: .3s;
+  max-width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+
+  &-mode {
+    &--default {
+      background: var(--element, @ev-color--default);
+
+      &:hover {
+        background: var(--element, @ev-color--default-hover);
+      }
+    }
+    &--primary {
+      background: var(--element, @ev-color--primary);
+
+      &:hover {
+        background: var(--element, @ev-color--primary-hover);
+      }
+    }
+  }
+
+  &-disabled {
+    &--default {
+      pointer-events: none;
+      background: var(--element, @ev-color--default-disabled);
+    }
+    &--primary {
+      pointer-events: none;
+      background: var(--element, @ev-color--primary-disabled);
+    }
+  }
+
+  &-size {
+    &--sm {
+      padding: 11.5px 15px;
+    }
+    &--md {
+      padding: 15px;
+    }
+  }
+}

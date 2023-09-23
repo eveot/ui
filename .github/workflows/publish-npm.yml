@@ -1,0 +1,44 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clear npm cache
+        run: npm cache clean -f
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create npmrc file
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Check npmrc file
+        run: cat ~/.npmrc
+
+      - name: Configure Git user
+        run: |
+          git config --global user.email "support@intarial.com"
+          git config --global user.name "IntarialN"
+
+      - name: Bump version (optional)
+        run: npm version patch # Или другую команду увеличения версии (major, minor, patch)
+
+      - name: Publish to npm
+        run: npm publish --access public # Используйте опцию --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
