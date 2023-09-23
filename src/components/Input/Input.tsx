@@ -3,6 +3,7 @@ import  './Input.less'
 
 export interface ButtonProps {
   onChange: (value: string) => void;
+  value: string | number;
   placeholder?: string;
   size?: 'sm' | 'md';
 }
@@ -11,12 +12,14 @@ const Input = (
   {
     size = 'md',
     placeholder,
+    value,
     onChange,
     ...props
   }: ButtonProps) => {
 
   return (
     <input
+      value={ value }
       onChange={
         (event) => onChange(event.target.value)
       }

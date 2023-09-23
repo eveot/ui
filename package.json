@@ -1,6 +1,6 @@
 {
   "name": "@eveot/ui",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Eveot UI - Components library for Eveot Projects",
   "scripts": {
     "rollup": "rollup -c",
@@ -68,6 +68,8 @@
   "dependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.2.1",
+    "rollup-plugin-concat": "^1.0.3",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.35.0"
   }

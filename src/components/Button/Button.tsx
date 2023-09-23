@@ -2,7 +2,7 @@ import React from "react";
 import './Button.less';
 
 export interface ButtonProps {
-  label: string;
+  children: string;
   onClick: () => void;
   disabled?: boolean;
   mode?: 'default' | 'primary';
@@ -14,7 +14,7 @@ const Button = ({
                   size = 'md',
                   disabled = false,
                   onClick,
-                  label,
+                  children,
                   ...props
                 }: ButtonProps) => {
 
@@ -30,7 +30,7 @@ const Button = ({
         ].join(' ')
       }
     >
-      {label}
+      {children}
     </button>
   );
 };

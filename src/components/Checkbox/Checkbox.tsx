@@ -4,7 +4,7 @@ import {IconCheckbox} from "../Icons/Icons";
 
 export interface ButtonProps {
   onClick: () => void;
-  label: string;
+  children: string;
   isActive: boolean;
 }
 
@@ -12,7 +12,7 @@ const Checkbox = (
   {
     isActive = false,
     onClick,
-    label,
+    children,
     ...props
   }: ButtonProps) => {
 
@@ -31,7 +31,7 @@ const Checkbox = (
         <IconCheckbox />
       </div>
       <span>
-        { label }
+        { children }
       </span>
     </label>
   );
