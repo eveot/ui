@@ -17,13 +17,13 @@ type Story = StoryObj<typeof meta>;
 export const IsActive: Story = {
   args: {
     isActive: true,
-    label: 'Content',
+    children: 'Content',
   },
 };
 
 export const IsDeactivated: Story = {
   args: {
     isActive: false,
-    label: 'Content',
+    children: 'Content',
   },
 };

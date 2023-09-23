@@ -5,6 +5,8 @@ import typescript from 'rollup-plugin-typescript2';
 import serve from 'rollup-plugin-serve';
 import less from 'rollup-plugin-less';
 const pkg = require("./package.json");
+import concat from 'rollup-plugin-concat';
+import copy from 'rollup-plugin-copy';
 
 export default {
     input: 'src/index.ts',
@@ -32,6 +34,15 @@ export default {
         serve({
             contentBase: ['dist'],
             port: 3000,
+        }),
+        concat({
+            files: 'src/**/*.less',
+            dest: 'dist/styles/eveot.min.less'
+        }),
+        copy({
+            targets: [
+                { src: 'src/**/*.less', dest: 'dist/styles' },
+            ],
         }),
     ],
 };

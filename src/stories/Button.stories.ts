@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     mode: 'default',
-    label: 'Button',
+    children: 'Button',
     size: 'sm'
   },
 };
@@ -25,7 +25,7 @@ export const Default: Story = {
 export const Primary: Story = {
   args: {
     mode: 'primary',
-    label: 'Button',
+    children: 'Button',
     size: 'md'
   },
 };
