@@ -1,6 +1,6 @@
 {
   "name": "@eveot/ui",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Eveot UI - Components library for Eveot Projects",
   "scripts": {
     "rollup": "rollup -c",
