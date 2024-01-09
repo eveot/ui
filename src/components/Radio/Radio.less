@@ -1,0 +1,50 @@
+@import "../../assets/styles/app";
+
+.ev-radio {
+  &--box {
+    width: 3rem;
+    height: 1.5rem;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: .3s;
+    background: @ev--b-500;
+    border-radius: 5rem;
+
+    div {
+      background: @ev--b-300;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 5rem;
+      transition: .3s;
+    }
+
+    &:hover {
+      background: @ev--b-400;
+
+      div {
+        background: @ev--b-200;
+      }
+    }
+
+    &_active {
+      background: @ev--p-500;
+
+      div {
+        margin-left: 50%;
+        background: @ev--b-000;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 5rem;
+        transition: .3s;
+      }
+
+      &:hover {
+        background: @ev--p-400;
+
+        div {
+          background: @ev--b-000;
+        }
+      }
+    }
+  }
+}

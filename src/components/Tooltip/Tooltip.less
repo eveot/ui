@@ -1,0 +1,88 @@
+@import "../../assets/styles/app";
+
+.ev-tooltip {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &-hint {
+    transition: .3s;
+    pointer-events: none;
+    opacity: 0;
+
+    padding: 0.625rem;
+    color: @ev--b-300;
+    text-align: center;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    background: @ev--b-000;
+    position: absolute;
+
+    height: 2.315rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+
+    &--position {
+
+      &-left {
+        right: calc(100% + 10px);
+      }
+
+      &-left-bottom {
+        right: calc(100% + 10px);
+        top: calc(100% + 10px);
+      }
+
+      &-left-top {
+        right: calc(100% + 10px);
+        bottom: calc(100% + 10px);
+      }
+
+      &-right {
+        left: calc(100% + 10px);
+      }
+
+      &-right-bottom {
+        left: calc(100% + 10px);
+        top: calc(100% + 10px);
+      }
+
+      &-right-top {
+        left: calc(100% + 10px);
+        bottom: calc(100% + 10px);
+      }
+
+      &-bottom {
+        top: calc(100% + 10px);
+      }
+
+      &-bottom-left {
+        top: calc(100% + 10px);
+        right: calc(100% + 10px);
+      }
+
+      &-bottom-right {
+        top: calc(100% + 10px);
+        left: calc(100% + 10px);
+      }
+
+      &-top {
+        bottom: calc(100% + 10px);
+      }
+
+      &-top-left {
+        bottom: calc(100% + 10px);
+        right: calc(100% + 10px);
+      }
+
+      &-top-right {
+        bottom: calc(100% + 10px);
+        left: calc(100% + 10px);
+      }
+    }
+
+    &--show {
+      opacity: 1;
+    }
+  }
+}

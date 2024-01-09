@@ -1,0 +1,62 @@
+@import "../../assets/styles/app";
+
+.ev-tip {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+
+  div {
+    padding: .5rem;
+    border-radius: 0.3125rem;
+    font-size: 0.875rem;
+
+    font-weight: 400;
+  }
+
+  &-mode {
+    &--default {
+      color: @ev-color--white;
+
+      div {
+        background: @ev--b-000;
+        color: @ev--b-400;
+
+        svg {
+          path {
+            fill: @ev--b-400;
+          }
+        }
+      }
+    }
+    &--primary {
+      color: @ev--b-100;
+
+      div {
+        background: @ev--p-500;
+        color: @ev--b-000;
+
+        svg {
+          path {
+            fill: @ev--b-000;
+          }
+        }
+      }
+    }
+    &--grey {
+      color: @ev--b-200;
+
+      div {
+        background: @ev--b-200;
+        color: @ev--b-100;
+
+        svg {
+          path {
+            fill: @ev--b-100;
+          }
+        }
+      }
+    }
+  }
+}
