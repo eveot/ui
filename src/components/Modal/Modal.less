@@ -1,0 +1,46 @@
+@import "../../assets/styles/app";
+
+.ev-modal {
+  display: inline-flex;
+  padding: 1.875rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  border-radius: 0.9375rem;
+  background: @ev--b-900;
+  width: 26.25rem;
+
+  h3 {
+    width: 100%;
+    text-align: start;
+    color: @ev--b-000;
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    color: @ev--b-100;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: start;
+    margin: 0;
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+    button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+}

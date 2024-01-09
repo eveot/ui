@@ -9,6 +9,10 @@
   max-width: 100%;
   cursor: pointer;
   border-radius: 8px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.63rem;
 
   &-mode {
     &--default {
@@ -25,6 +29,22 @@
         background: var(--element, @ev-color--primary-hover);
       }
     }
+    &--white {
+      background: var(--element, @ev--b-000);
+      color: @ev--b-400;
+
+      svg {
+        path {
+          transition: .3s;
+          fill: black;
+        }
+      }
+
+      &:hover {
+        background: var(--element, @ev--p-500);
+        color: @ev--b-000;
+      }
+    }
   }
 
   &-disabled {
@@ -36,14 +56,31 @@
       pointer-events: none;
       background: var(--element, @ev-color--primary-disabled);
     }
+    &--white {
+      pointer-events: none;
+      background: var(--element, @ev--p-900);
+      color: @ev--b-000;
+
+      svg {
+        path {
+          fill: white;
+        }
+      }
+    }
   }
 
   &-size {
     &--sm {
       padding: 11.5px 15px;
     }
+    &--lg {
+      padding: 15.5px 15px;
+    }
     &--md {
-      padding: 15px;
+      padding: 20px;
+    }
+    &--xlg {
+      padding: 25px 20px;
     }
   }
 }

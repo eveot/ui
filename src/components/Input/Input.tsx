@@ -1,11 +1,13 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import  './Input.less'
 
 export interface ButtonProps {
-  onChange: (value: string) => void;
+  onChange: (value: ChangeEvent<HTMLInputElement>) => void;
   value: string | number;
+  name: string;
   placeholder?: string;
-  size?: 'sm' | 'md';
+  type?: 'number' | 'text' | 'password'
+  size?: 'sm' | 'lg' | 'md';
 }
 
 const Input = (
@@ -13,6 +15,8 @@ const Input = (
     size = 'md',
     placeholder,
     value,
+    name,
+    type,
     onChange,
     ...props
   }: ButtonProps) => {
@@ -20,8 +24,10 @@ const Input = (
   return (
     <input
       value={ value }
+      type={ type }
+      name={ name }
       onChange={
-        (event) => onChange(event.target.value)
+        (event) => onChange(event)
       }
       className={
         [

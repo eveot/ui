@@ -29,3 +29,11 @@ export const Primary: Story = {
     size: 'md'
   },
 };
+
+export const White: Story = {
+  args: {
+    mode: 'white',
+    children: 'Button',
+    size: 'xlg'
+  },
+};
