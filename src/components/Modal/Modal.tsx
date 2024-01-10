@@ -1,4 +1,4 @@
-import React, {JSX, useState} from "react";
+import React, {JSX} from "react";
 import './Modal.less';
 import Input from "../Input";
 import Button from "../Button";
@@ -6,20 +6,20 @@ import Button from "../Button";
 export interface ModalProps {
   title: string | JSX.Element;
   type: 'confirmation' | 'input' | 'hint';
+  text?: { value: string, update: (text: string) => void }
   onClick: (accepted: boolean, value?: string | number) => void;
   subtitle?: string;
   placeholder?: string;
 }
 
 const Modal = ({
+                  text,
                  title,
                  subtitle,
                  placeholder = 'Placeholder',
                  type = 'confirmation',
                  onClick,
                }: ModalProps) => {
-
-  const [text, setText] = useState('')
 
   return (
     <div
@@ -39,11 +39,11 @@ const Modal = ({
         )
       }
       {
-        type === 'input' && (
+        type === 'input' && text && (
           <Input
             placeholder={ placeholder }
-            onChange={ (e) => setText(e.target.value) }
-            value={ text }
+            onChange={ (e) => text.update(e.target.value) }
+            value={ text.value }
             size='lg'
             name='modal'
           />
@@ -55,7 +55,7 @@ const Modal = ({
             <Button
               mode='default'
               size='lg'
-              onClick={() => onClick(false, text)}
+              onClick={() => text && onClick(false, text && text.value)}
             >
               Отменить
             </Button>
@@ -64,7 +64,7 @@ const Modal = ({
         <Button
           mode='primary'
           size='lg'
-          onClick={ () => onClick(true, text) }
+          onClick={ () => onClick(true, text && text.value) }
         >
           { type === 'hint' ? 'Понятно' : 'Подтвердить' }
         </Button>

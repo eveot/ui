@@ -1,35 +1,35 @@
-import React, {JSX, useState} from "react";
+import React, {JSX} from "react";
 import './Dropdown.less';
 
 export interface TooltipProps {
   children: string | JSX.Element;
+  open: { value: boolean, update: (val: boolean) => void }
   callbacks: { value: JSX.Element | string, callback: { mouseMove?: () => void, click?: () => void, mouseLeave?: () => void } }[];
 }
 
 const Dropdown = ({
                   children,
+                    open,
                   callbacks
                 }: TooltipProps) => {
-
-  const [open, setOpen] = useState(false);
 
   const click = (callback?: () => void) => {
     callback && callback();
 
-    setOpen(false);
+    open.update(false);
   }
 
   return (
     <div
       className="ev-dropdown"
-      onMouseLeave={ () => setOpen(false) }
+      onMouseLeave={ () => open.update(false) }
     >
       <div
-        onClick={ () => setOpen(!open) }
+        onClick={ () => open.update(!open) }
         className={
           [
             "ev-dropdown-box",
-            open && `ev-dropdown-box--show`,
+            open.value && `ev-dropdown-box--show`,
           ].join(' ')
         }
       >
@@ -42,7 +42,7 @@ const Dropdown = ({
         className={
           [
             "ev-dropdown-callbacks",
-            open && `ev-dropdown-callbacks--show`,
+            open.value && `ev-dropdown-callbacks--show`,
           ].join(' ')
         }
       >

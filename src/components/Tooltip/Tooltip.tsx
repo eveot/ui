@@ -1,22 +1,22 @@
-import React, {JSX, useState} from "react";
+import React, {JSX} from "react";
 import './Tooltip.less';
 
 export interface TooltipProps {
+  show: { value: boolean, update: (val: boolean) => void }
   children: string | JSX.Element
   tip: { hint: string | JSX.Element, position: 'left' | 'left-top' | 'left-bottom' | 'bottom' | 'bottom-right' | 'bottom-left' | 'right' | 'right-top' | 'right-bottom' | 'top' | 'top-left' | 'top-right' }
 }
 
 const Tooltip = ({
                   children,
+                  show,
                   tip
                 }: TooltipProps) => {
 
-  const [show, setShow] = useState(false);
-
   return (
     <div
-      onMouseMove={ () => setShow(true) }
-      onMouseLeave={ () => setShow(false) }
+      onMouseMove={ () => show.update(true) }
+      onMouseLeave={ () => show.update(false) }
       className="ev-tooltip"
       style={{
         flexDirection: (tip.position.split('-')[0] === 'left' || tip.position.split('-')[0] === 'right') ? 'row' : 'column'
@@ -27,7 +27,7 @@ const Tooltip = ({
         className={
           [
             "ev-tooltip-hint",
-            show && `ev-tooltip-hint--show`,
+            show.value && `ev-tooltip-hint--show`,
             `ev-tooltip-hint--position-${ tip.position }`,
           ].join(' ')
         }
