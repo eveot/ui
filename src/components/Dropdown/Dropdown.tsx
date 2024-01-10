@@ -13,6 +13,12 @@ const Dropdown = ({
 
   const [open, setOpen] = useState(false);
 
+  const click = (callback?: () => void) => {
+    callback && callback();
+
+    setOpen(false);
+  }
+
   return (
     <div
       className="ev-dropdown"
@@ -44,7 +50,7 @@ const Dropdown = ({
           callbacks.map(
             callback => (
               <div
-                onClick={ callback.callback.click }
+                onClick={ () => click(callback.callback.click) }
                 className='ev-dropdown-callbacks--box'
                 onMouseMove={ callback.callback.mouseMove }
                 onMouseLeave={ callback.callback.mouseLeave }
